@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+</head>
+<body>
+    <header>
+        <nav>
+        <button><a href="/home">HOME</a></button>
+        <button><a href="/profile">PROFILE</a></button>
+        <button><a href="/logout">LOGOUT</a></button>
+        </nav>
+    </header>
+    <main>
+    {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <a href="/about">ABOUT</a>
+        <h4>MADE BY ANKUSH MAC29</h4>
+    </footer>
+</body>
+</html>
