@@ -16,7 +16,7 @@ body{
     grid-template-rows: auto 1fr auto;
     background-color: var(--bg-dark);
     color: var(--text-light);
-    gap: 40px;
+    gap: 5px;
 }
 
 header{
@@ -40,17 +40,73 @@ main{
     align-items: center; 
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: #ff4d6d solid 2px;
+    height: 30vh;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: -3px 0px 0px 0px white;
+}
+
+form input{
+    width: 300px;
+    height: 4vh;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    background-color: var(--input-bg);
+}
+
 footer{
     background-color: var(--bg-darker);
     color: var(--primary-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
 }
+
+footer a{
+    border: none;
+}
+
+footer a:hover{
+    color: #ff6b85;
+    background-color: #111111;
+}
+
 
 a{
     text-decoration: none;
     color: var(--text-light);
-    padding: 2px;
+    display: inline-block;
+    padding: 12px 24px;
+    border: #ff4d6d solid 2px;
+    border-radius: 10px;
+}
+
+a:hover{
+    background-color: var(--primary-hover);
+    color: var(--input-bg);
+    transition: 0.5s;
+}
+
+input:hover{
+    background-color: #ff6b85;
+    color: var(--input-bg);
+    transition: 0.5s;
+}
+
+form input:hover::-webkit-input-placeholder {
+    color: var(--text-light); 
+    transition: 0.5s;
+}
+
+form input:hover::placeholder {
+    color: var(--text-light);
+    transition: 0.5s;
 }

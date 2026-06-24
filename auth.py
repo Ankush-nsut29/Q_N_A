@@ -25,7 +25,7 @@ def login():
             session["id"]=student_found.id
             return redirect(url_for("profile.user"))    
         else:
-            return f"<h1>EMAIL OR PASSWORD WRONG</h1>"
+            return redirect(url_for("auth.login"))
     else:
         return render_template("auth/login.html")    
 
