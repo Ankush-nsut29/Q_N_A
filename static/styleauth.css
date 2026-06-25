@@ -45,27 +45,55 @@ form{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border: #ff4d6d solid 2px;
+    border: var(--primary-color) solid 2px;
     height: 30vh;
     width: 500px;
     border-radius: 10px;
-    box-shadow: -3px 0px 0px 0px white;
-        transition: all 0.3s ease-in-out; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out; 
 }
 
 form:hover{
     border-color: var(--primary-hover); 
-    box-shadow: -5px 0px 0px 0px var(--primary-hover); 
-    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(255, 77, 109, 0.3); 
+    transform: translateY(-6px); 
 }
 
-form input{
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
     width: 300px;
-    height: 4vh;
-    border-radius: 10px;
-    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(255, 77, 109, 0.3);
+}
+
+form input::placeholder {
+    color: var(--text-muted);
+}
+
+form input[type="submit"] {
+    width: 300px;
+    padding: 12px;
+    border-radius: 8px;
     border: none;
-    background-color: var(--input-bg);
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 footer{
@@ -102,18 +130,8 @@ a:hover{
     transition: 0.5s;
 }
 
-input:hover{
-    background-color: #ff6b85;
-    color: var(--input-bg);
-    transition: 0.5s;
-}
-
-form input:hover::-webkit-input-placeholder {
-    color: var(--text-light); 
-    transition: 0.5s;
-}
-
-form input:hover::placeholder {
-    color: var(--text-light);
-    transition: 0.5s;
+form input[type="submit"]:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4);
 }
