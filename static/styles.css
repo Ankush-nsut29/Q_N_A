@@ -11,13 +11,17 @@
 }
 
 body {
+    margin: 0;
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
     background-color: var(--bg-darker);
     color: var(--text-light);
-    gap: 5px;
 }
+
+
+/* ...header... */
+
 
 header {
     background-color: var(--bg-darker);
@@ -31,13 +35,89 @@ header nav {
     justify-content: space-evenly;
 }
 
-main {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+/* ...footer... */
+
+
+footer {
+    background-color: var(--bg-darker);
+    color: var(--primary-color);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+footer a {
+    border: none;
+}
+
+footer a:hover {
+    color: #ff6b85;
+    background-color: #111111;
+}
+
+
+/* ....links.... */
+
+
+a {
+    text-decoration: none;
+    color: var(--text-light);
+    display: inline-block;
+    padding: 12px 24px;
+    border: #ff4d6d solid 1px;
+    border-radius: 10px;
+}
+
+a:hover {
+    background-color: var(--primary-hover);
+    color: var(--input-bg);
+    transition: 0.5s;
+}
+
+
+
+
+/* ..................................user.html.............................................. */
+
+main.profile_layout {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    align-items: stretch;
+    background-color: var(--bg-dark);
+}
+
+aside {
+    text-align: center;
+    border-right: 1px solid var(--primary-color);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-ask {
+    display: block;
+    width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.card {
+    width: 1000px;
+    margin: 20px auto;
+    box-sizing: border-box;
 }
 
 .profile_card {
@@ -52,6 +132,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease-in-out;
+    margin: 20px;
 }
 
 .profile_card:hover {
@@ -73,35 +154,150 @@ main {
     border: #ff4d6d solid 2px;
 }
 
-footer {
-    background-color: var(--bg-darker);
-    color: var(--primary-color);
+
+
+
+/* ..................................forum.html.................................................. */
+
+
+.forum_main {
+    background-color: var(--bg-dark);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-a {
-    text-decoration: none;
-    color: var(--text-light);
-    display: inline-block;
-    padding: 12px 24px;
-    border: #ff4d6d solid 1px;
+.forum {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: var(--primary-color) solid 2px;
+    background-color: #1f1f1f;
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+    max-width: 600px;
+    margin: 20px;
 }
 
-a:hover {
-    background-color: var(--primary-hover);
-    color: var(--input-bg);
-    transition: 0.5s;
+.forum:hover {
+    border-color: var(--primary-hover);
+    box-shadow: 0 8px 25px rgba(255, 77, 109, 0.3);
+    transform: translateY(-6px);
 }
 
-footer a {
+.forum p {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: -8px;
+    margin-left: 10px;
+}
+
+.forum h1 {
+    align-self: center;
+}
+
+textarea {
+    min-height: 150px;
+    padding: 14px 20px;
+    border-radius: var(--radius-card);
+    background-color: #222;
+    border: 1px solid transparent;
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: var(--text-light);
+    resize: vertical;
+    outline: none;
+    margin: 10px;
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.forum input {
+    width: 500px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+input[type="submit"] {
+    width: 300px;
+    padding: 12px;
+    border-radius: 8px;
     border: none;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+    margin-top: 10px;
 }
 
-footer a:hover {
-    color: #ff6b85;
-    background-color: #111111;
+input[type="submit"]:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4);
+}
+
+/* ----------------------------------feed.html------------------------------------------------ */
+
+.feed_main {
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: var(--primary-color) solid 2px;
+    background-color: #1f1f1f;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+.question:hover {
+    border-color: var(--primary-hover);
+    box-shadow: 0 8px 25px rgba(255, 77, 109, 0.3);
+    transform: translateY(-6px);
+}
+
+.question .asker {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: -5px;
+}
+
+.question h1 {
+    color: var(--text-light);
+    margin: 5px 0 10px 0;
+}
+
+.question p {
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.question a {
+    align-self: flex-start;
+    margin-top: 15px;
 }

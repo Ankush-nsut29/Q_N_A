@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block title %}HOME{% endblock %} {% block content
+%}
+<main class="feed_main">
+  {% for question in all_questions %}
+  <div class="question card">
+    <p class="asker">Asked by {{ question.author.name }}</p>
+    <h1>{{question.title}}</h1>
+    <p>{{question.body}}</p>
+    <a href="/answer/{{question.id}}">ANSWERS</a>
+  </div>
+  {% endfor %}
+</main>
+{% endblock %}

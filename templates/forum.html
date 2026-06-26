@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block title %}FORUM{% endblock %} {% block content
+%}
+<main class="forum_main">
+  <form action="{{url_for('forum.ask')}}" method="post" class="forum">
+    <h1>ASK YOUR QUESTION</h1>
+    <p>Title</p>
+    <input type="text" name="title" />
+    <p>Body</p>
+    <textarea name="body" placeholder="Add more detail..."></textarea>
+    <input type="submit" value="POST QUESTION" />
+  </form>
+</main>
+{% endblock %}
