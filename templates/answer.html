@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}ANSWERS{% endblock %}
+{% block content %}
+
+<main class="answer_layout">
+    <div class="left-col">
+        <div class="question">
+            <p class="asker">Asked by {{ question.author.name }}</p>
+            <h1>{{ question.title }}</h1>
+            <p>{{ question.body }}</p>
+        </div>
+
+        <form class="answer-form" action="{{ url_for('home.answer_page', question_id=question.id) }}" method="post">
+            <h2>Your Answer</h2>
+            <textarea name="body" placeholder="Add your answer..."></textarea>
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
+
+    <div class="right-col">
+        <h2>Answers ({{ question.answer|length }})</h2>
+        <section class="answers-section">
+            {% for ans in question.answer %}
+            <div class="question answer-card">
+                <p class="asker">{{ ans.author.name }} answered:</p>
+                <p>{{ ans.body }}</p>
+            </div>
+            {% endfor %}
+
+            {% if not question.answer %}
+            <p style="color: var(--text-muted); text-align: center;">No answers yet. Be the first!</p>
+            {% endif %}
+        </section>
+    </div>
+</main>
+
+{% endblock %}

@@ -13,6 +13,6 @@ def ask():
         newquestion=question(title=title,body=body,user_id=session["id"])
         db.session.add(newquestion)
         db.session.commit()
-        return f"<h1>i will add a html template here for home</h1>"
+        return redirect(url_for("home.feed"))
     else:
         return render_template("forum.html")

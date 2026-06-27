@@ -11,7 +11,7 @@ def register():
         s=student(name=name,email=email,password=password)
         db.session.add(s)
         db.session.commit()
-        return f"Registered {name} successfully!"
+        return redirect(url_for("auth.login"))
     else:
         return render_template("auth/register.html")    
     

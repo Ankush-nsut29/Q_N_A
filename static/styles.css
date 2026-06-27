@@ -301,3 +301,95 @@ input[type="submit"]:hover {
     align-self: flex-start;
     margin-top: 15px;
 }
+
+/* ----------------------------------answer.html------------------------------------------------ */
+
+.answer_layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+    background-color: var(--bg-dark);
+    align-items: start;
+    box-sizing: border-box;
+}
+
+.answer_layout .left-col,
+.answer_layout .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.answer_layout .right-col h2 {
+    color: var(--text-light);
+    margin: 0;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.answers-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 15px; /* for scrollbar */
+}
+
+/* Custom scrollbar for answers-section */
+.answers-section::-webkit-scrollbar {
+    width: 8px;
+}
+.answers-section::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 4px;
+}
+.answers-section::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.answer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: var(--primary-color) solid 2px;
+    background-color: #1f1f1f;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.answer-form h2 {
+    margin: 0 0 5px 0;
+}
+
+.answer-form textarea {
+    min-height: 150px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.answer-form input[type="submit"] {
+    align-self: flex-end;
+    width: 200px;
+    margin-top: 5px;
+}
+
+.answer-card {
+    border-color: var(--text-muted);
+    background-color: #252525;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.answer-card:hover {
+    border-color: var(--primary-color);
+}
