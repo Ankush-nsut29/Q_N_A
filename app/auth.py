@@ -1,5 +1,5 @@
 from flask import request,render_template,redirect,url_for,Blueprint,session
-from model  import student,db
+from .model  import student,db
 auth=Blueprint("auth",__name__)
 
 @auth.route("/register",methods=["POST","GET"])

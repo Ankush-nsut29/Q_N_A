@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint,render_template,session,redirect,url_for,request
-from model import student,question,answer
-from model import db,answer,question,student
+from .model import student,question,answer
+from .model import db,answer,question,student
 
 home=Blueprint("home",__name__)
 

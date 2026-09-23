@@ -1,5 +1,5 @@
 from flask import Blueprint,session,render_template,redirect,url_for
-from model import db,student
+from .model import db,student
 
 profile=Blueprint("profile",__name__)
 

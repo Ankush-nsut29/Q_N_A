@@ -1,5 +1,5 @@
 from flask import Flask,Blueprint,session,redirect,url_for,render_template,request
-from model import student,question,answer,db
+from .model import student,question,answer,db
 
 forum=Blueprint("forum",__name__)
 
