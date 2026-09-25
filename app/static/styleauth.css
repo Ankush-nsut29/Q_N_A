@@ -17,6 +17,7 @@ body {
     background-color: var(--bg-darker);
     color: var(--text-light);
     gap: 5px;
+    animation: fadeIn 0.8s ease-out;
 }
 
 header {
@@ -52,6 +53,8 @@ form {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease-in-out;
+    opacity: 0;
+    animation: slideUp 0.6s ease-out forwards;
 }
 
 form:hover {
@@ -134,5 +137,28 @@ a:hover {
 form input[type="submit"]:hover {
     background-color: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4); }
+    50% { transform: scale(1.02); box-shadow: 0 6px 15px rgba(255, 77, 109, 0.6); }
+    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4); }
 }

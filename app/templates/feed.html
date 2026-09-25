@@ -2,7 +2,7 @@
 %}
 <main class="feed_main">
   {% for question in all_questions %}
-  <div class="question card">
+  <div class="question card" style="animation-delay: {{ loop.index0 * 0.1 }}s">
     <p class="asker">Asked by {{ question.author.name }}</p>
     <h1>{{question.title}}</h1>
     <p>{{question.body}}</p>
