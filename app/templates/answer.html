@@ -5,7 +5,10 @@
 <main class="answer_layout">
     <div class="left-col">
         <div class="question">
-            <p class="asker">Asked by {{ question.author.name }}</p>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <img src="{{ question.author.pfp if question.author.pfp else 'https://i.redd.it/vvzpigme0ds61.jpg' }}" alt="pfp" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;" />
+                <p class="asker" style="margin: 0;">Asked by {{ question.author.name }}</p>
+            </div>
             <h1>{{ question.title }}</h1>
             <p>{{ question.body }}</p>
         </div>
@@ -22,7 +25,10 @@
         <section class="answers-section">
             {% for ans in question.answer %}
             <div class="question answer-card">
-                <p class="asker">{{ ans.author.name }} answered:</p>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <img src="{{ ans.author.pfp if ans.author.pfp else 'https://i.redd.it/vvzpigme0ds61.jpg' }}" alt="pfp" style="width: 25px; height: 25px; border-radius: 50%; object-fit: cover;" />
+                    <p class="asker" style="margin: 0;">{{ ans.author.name }} answered:</p>
+                </div>
                 <p>{{ ans.body }}</p>
             </div>
             {% endfor %}

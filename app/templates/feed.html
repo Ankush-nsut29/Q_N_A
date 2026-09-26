@@ -3,7 +3,10 @@
 <main class="feed_main">
   {% for question in all_questions %}
   <div class="question card" style="animation-delay: {{ loop.index0 * 0.1 }}s">
-    <p class="asker">Asked by {{ question.author.name }}</p>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+      <img src="{{ question.author.pfp if question.author.pfp else 'https://i.redd.it/vvzpigme0ds61.jpg' }}" alt="pfp" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;" />
+      <p class="asker" style="margin: 0;">Asked by {{ question.author.name }}</p>
+    </div>
     <h1>{{question.title}}</h1>
     <p>{{question.body}}</p>
     <a href="/answer/{{question.id}}">ANSWERS</a>

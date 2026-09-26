@@ -4,10 +4,11 @@
 <main class="profile_layout">
   <aside>
     <div class="profile_card">
-      <img src="https://i.redd.it/vvzpigme0ds61.jpg" alt="pfp" width="100px" />
+      <img src="{{ user.pfp if user.pfp else 'https://i.redd.it/vvzpigme0ds61.jpg' }}" alt="pfp" width="100px" style="border-radius: 50%; object-fit: cover; aspect-ratio: 1/1;" />
       <h1>HI {{user.name}}</h1>
       <h2>{{user.email}}</h2>
       <h2 class="post-count">{{ user.questions|length }} Questions Asked</h2>
+      <button class="btn-ask" onclick="document.getElementById('pfp-modal').style.display='flex'" style="margin-top: 15px; font-size: 0.9em; padding: 10px; cursor: pointer; width: 60%; min-width: 150px;">Change Icon</button>
     </div>
   </aside>
   <section>
@@ -22,6 +23,24 @@
     </article>
     {% endfor %}
   </section>
+
+  <div id="pfp-modal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div class="modal-content card" style="background: var(--bg, #222); padding: 30px; border-radius: 16px; max-width: 500px; width: 90%; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      <span class="close" onclick="document.getElementById('pfp-modal').style.display='none'" style="position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #888; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#888'">&times;</span>
+      <h2 style="margin-bottom: 20px; font-weight: 600;">Choose Profile Icon</h2>
+      <form action="/change_pfp" method="POST">
+        <div class="pfp-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 15px; margin-bottom: 25px;">
+          {% for pfp in pfp_options %}
+          <label style="cursor: pointer; position: relative; display: block;">
+            <input type="radio" name="pfp" value="{{ pfp }}" style="display: none;" onchange="document.querySelectorAll('.pfp-option').forEach(el => {el.style.border='3px solid transparent'; el.style.transform='scale(1)'}); this.nextElementSibling.style.border='3px solid #5a67d8'; this.nextElementSibling.style.transform='scale(1.05)';" required>
+            <img class="pfp-option" src="{{ pfp }}" alt="icon" style="width: 100%; border-radius: 50%; border: 3px solid transparent; transition: all 0.2s ease-in-out; background-color: rgba(255,255,255,0.05);" onmouseover="if(this.style.borderColor === 'transparent' || this.style.borderColor === 'rgba(0, 0, 0, 0)') this.style.transform='scale(1.05)'" onmouseout="if(this.style.borderColor === 'transparent' || this.style.borderColor === 'rgba(0, 0, 0, 0)') this.style.transform='scale(1)'" />
+          </label>
+          {% endfor %}
+        </div>
+        <button type="submit" class="btn-ask" style="width: 100%; border-radius: 8px; font-size: 1.1em; padding: 12px; cursor: pointer;">Save Icon</button>
+      </form>
+    </div>
+  </div>
 </main>
 
 {% endblock %}

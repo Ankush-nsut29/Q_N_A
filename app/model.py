@@ -7,6 +7,7 @@ class student(db.Model):
     name=db.Column(db.String(50),nullable=False)
     email=db.Column(db.String(50),nullable=False,unique=True)
     password=db.Column(db.String(50),nullable=False)
+    pfp=db.Column(db.String(255), default="https://i.redd.it/vvzpigme0ds61.jpg")
     questions=db.relationship("question",backref="author")
     answers=db.relationship("answer",backref="author")
 
